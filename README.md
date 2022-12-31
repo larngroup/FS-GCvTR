@@ -1,4 +1,4 @@
-## Few-shot Learning with Convolutional Transformers via Graph Embeddings for Toxicity and Side Effect Prediction
+## Convolutional Transformer via Graph Embeddings for Few-shot Toxicity and Side Effect Prediction
 
 In this work, we present a few-shot GNN-Transformer architecture called FS-GNNCvTR that addresses the challenge of low data learning in toxicity and side effect prediction.  It is demonstrated that FS-GNNCvTR outperforms simpler graph-based methods on benckmarks datasets such as Tox21 and SIDER.
 
