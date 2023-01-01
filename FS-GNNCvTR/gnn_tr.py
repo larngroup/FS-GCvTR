@@ -64,7 +64,7 @@ class FeedForward(nn.Module):
     def forward(self, x):
         return self.net(x)
 
-class DepthWiseConv2d(nn.Module):
+class DepthWiseConv(nn.Module):
     def __init__(self, dim_in, dim_out, kernel_size, padding, stride, bias = True):
         super().__init__()
         self.net = nn.Sequential(
@@ -86,8 +86,8 @@ class Attention(nn.Module):
         self.attend = nn.Softmax(dim = -1)
         self.dropout = nn.Dropout(dropout)
 
-        self.to_q = DepthWiseConv2d(dim, inner_dim, proj_kernel, padding = padding, stride = 1, bias = False)
-        self.to_kv = DepthWiseConv2d(dim, inner_dim * 2, proj_kernel, padding = padding, stride = kv_proj_stride, bias = False)
+        self.to_q = DepthWiseConv(dim, inner_dim, proj_kernel, padding = padding, stride = 1, bias = False)
+        self.to_kv = DepthWiseConv(dim, inner_dim * 2, proj_kernel, padding = padding, stride = kv_proj_stride, bias = False)
 
         self.to_out = nn.Sequential(
             nn.Conv2d(inner_dim, dim, 1),
