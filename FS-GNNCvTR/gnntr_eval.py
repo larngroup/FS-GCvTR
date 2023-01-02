@@ -246,7 +246,7 @@ class GNNCvTR_eval(nn.Module):
                 batch = batch.to(device)
                 
                 with torch.no_grad(): 
-                    graph_pred, node_emb = self.gnn(batch.x, batch.edge_index, batch.edge_attr, batch.batch)
+                    logit, node_emb = self.gnn(batch.x, batch.edge_index, batch.edge_attr, batch.batch)
                 
                 y_label.append(batch.y.view(graph_pred.shape))
                 
