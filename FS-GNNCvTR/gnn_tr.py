@@ -13,8 +13,6 @@ import torch_geometric.nn as gnn
 from einops import rearrange, repeat
 from einops.layers.torch import Rearrange
 
-# helper methods
-
 def group_dict_by_key(cond, d):
     return_val = [dict(), dict()]
     for key in d.keys():
@@ -27,8 +25,6 @@ def group_by_key_prefix_and_remove_prefix(prefix, d):
     kwargs_with_prefix, kwargs = group_dict_by_key(lambda x: x.startswith(prefix), d)
     kwargs_without_prefix = dict(map(lambda x: (x[0][len(prefix):], x[1]), tuple(kwargs_with_prefix.items())))
     return kwargs_without_prefix, kwargs
-
-# classes
 
 class LayerNorm(nn.Module): # layernorm, but done in the channel dimension #1
     def __init__(self, dim, eps = 1e-5):
