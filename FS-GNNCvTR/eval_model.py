@@ -41,7 +41,7 @@ baseline = 1
 device = "cuda:0"
 tl = 0
 
-# FS-GNNCvTR - Two module GNN-CNN architecture
+# FS-GNNCvTR - Two module GNN-TR architecture
 # GraphSage - assumes that nodes that reside in the same neighborhood should have similar embeddings.
 # GIN - Graph Isomorphism Network
 # GCN - Standard Graph Convolutional Network
