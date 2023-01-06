@@ -61,7 +61,7 @@ for epoch in range(1, 10000):
             exp[i] = roc_scores[i]
             is_best = True
             
-    filename = "results-exp/FS-GNNCvTR-sider-5.txt"
+    filename = "results-exp/FS-GNNCvTR-tox21-5.txt"
     file = open(filename, "a")
     file.write("ROC-AUC scores:\t")
     #file.write(str(exp))
@@ -71,11 +71,10 @@ for epoch in range(1, 10000):
     file.close()
     
     if baseline == 0:
-        save_ckp(checkpoint_gnn, is_best, checkpoint_dir, model_dir, "/FS-GNNCvTR_GNN_sider_5.pt", "/FS-GNNCvTR_GNN_sider_5_best.pt")
-        save_ckp(checkpoint_transformer, is_best, checkpoint_dir, model_dir, "/FS-GNNCvTR_Transformer_sider_5.pt", "/FS-GNNCvTR_Transformer_sider_5_best.pt")
+        save_ckp(checkpoint_gnn, is_best, checkpoint_dir, model_dir, "/FS-GNNCvTR_GNN_tox21_5.pt", "/FS-GNNCvTR_GNN_tox21_5_best.pt")
+        save_ckp(checkpoint_transformer, is_best, checkpoint_dir, model_dir, "/FS-GNNCvTR_Transformer_tox21_5.pt", "/FS-GNNCvTR_Transformer_tox21_5_best.pt")
 
-    #elif baseline == 1:
-     #   pass
-        #save_ckp(checkpoint_gnn, is_best, checkpoint_dir, model_dir, "/GT_GNN_sider_5.pt", "/best_GT_GNN_sider_5.pt")
+    elif baseline == 1:
+        save_ckp(checkpoint_gnn, is_best, checkpoint_dir, model_dir, "/checkpoint_GIN_gnn_tox21_5.pt", "/best_checkpoint_GIN_gnn_tox21_5.pt")
         
    
