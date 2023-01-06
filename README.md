@@ -6,7 +6,7 @@ A graph neural network (GNN) converts the topological structure of molecular gra
 
 ![ScreenShot](FS-GNNCvTR/plots/FS-GNNCvTR.png?raw=true)
 
-To address the low data problem, we propose a two-module meta-learning framework to update model parameters across few-shot tasks and promote fast adaptation to new toxicity and side effect properties with limited available data.
+To address the low data problem, we propose a novel two-module meta-learning framework to update model parameters across few-shot tasks and promote fast adaptation to new toxicity and side effect properties with limited available data.
 
 ![ScreenShot](FS-GNNCvTR/plots/meta.png?raw=true)
 
