@@ -130,12 +130,12 @@ class GNNCvTR_eval(nn.Module):
         if tl == 1:
             if dataset == "tox21":
                 self.tasks = 12
-                self.train_tasks = 0 #change to 0 for transfer-learning experiments
-                self.test_tasks = 12 #change to 12 for transfer-learning experiments
+                self.train_tasks = 0 
+                self.test_tasks = 12 
         
             elif dataset == "sider":
                 self.tasks = 27
-                self.train_tasks = 0 #change to 0 for transfer-learning experiments
+                self.train_tasks = 0 
                 self.test_tasks = 27
 
         self.data = dataset
@@ -154,7 +154,7 @@ class GNNCvTR_eval(nn.Module):
         self.gnn = GNN_prediction(self.graph_layers, self.emb_size, jk = "last", dropout_prob = 0.5, pooling = "mean", gnn_type = gnn)
         self.transformer = ConvTR() 
         self.gnn.from_pretrained(pretrained)
-        self.pos_weight = torch.FloatTensor([1]).to(self.device) #Tox21: 25; SIDER: 1
+        self.pos_weight = torch.FloatTensor([25]).to(self.device) #Tox21: 25; SIDER: 1
         self.loss_transformer = nn.BCEWithLogitsLoss(pos_weight=self.pos_weight)
         self.meta_optimizer = torch.optim.Adam(self.transformer.parameters(), lr=1e-5)
         print(self.transformer.parameters)
@@ -167,8 +167,8 @@ class GNNCvTR_eval(nn.Module):
         self.gnn.to(torch.device("cuda:0"))
         
         if (self.baseline == 0):
-            self.ckp_path_gnn = "checkpoints/checkpoints-GT/FS-GNNCvTR_GNN_sider_10.pt"
-            self.ckp_path_transformer = "checkpoints/checkpoints-GT/FS-GNNCvTR_Transformer_sider_10.pt"
+            self.ckp_path_gnn = "checkpoints/checkpoints-GT/FS-GNNCvTR_GNN_tox21_10.pt"
+            self.ckp_path_transformer = "checkpoints/checkpoints-GT/FS-GNNCvTR_Transformer_tox21_10.pt"
         elif  (self.baseline == 1):
             self.ckp_path_gnn = "checkpoints/checkpoints-baselines/GIN/checkpoint_GIN_gnn_tox21_05.pt"
         
