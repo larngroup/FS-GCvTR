@@ -9,9 +9,9 @@ def save_ckp(state, is_best, checkpoint_dir, best_model_dir, filename, best_mode
     
     f_path = checkpoint_dir + filename
     torch.save(state, f_path)
-    if is_best:
-        best_fpath = best_model_dir + best_model
-        shutil.copyfile(f_path, best_fpath)
+    #if is_best:
+    #    best_fpath = best_model_dir + best_model
+    #    shutil.copyfile(f_path, best_fpath)
 
 def save_result(epoch, N, exp, filename, tl):
             
