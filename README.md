@@ -2,7 +2,7 @@
 
 In this work, we present a few-shot GNN-Transformer architecture called FS-GNNCvTR that addresses the challenge of low data learning in toxicity and side effect prediction.  It is demonstrated that FS-GNNCvTR outperforms simpler graph-based methods on benckmarks datasets such as Tox21 and SIDER.
 
-A GNN converts the topological structure of molecular graphs into molecular graph embeddings using neighborhood aggregation. A convolutional Transformer encoder exploits the contextual information of these vectorial embeddings to propagate deep representations across self-attention layers. The Transformer includes a convolutional component to integrate the local information captured by convolutional filters with the global dependencies preserved by the dynamic attention operations of Transformer networks.
+A graph neural network (GNN) converts the topological structure of molecular graphs into molecular graph embeddings using neighborhood aggregation. A convolutional Transformer (CvTR) encoder exploits the contextual information of these vectorial embeddings to propagate deep representations across self-attention layers. The Transformer includes a convolutional component to integrate the local information captured by convolutional filters with the global dependencies preserved by the dynamic attention operations of Transformer networks.
 
 ![ScreenShot](FS-GNNCvTR/plots/FS-GNNCvTR.png?raw=true)
 
