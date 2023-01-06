@@ -17,7 +17,6 @@ from tqdm import tqdm
 import numpy as np
 from sklearn.metrics import roc_auc_score
 from torch.nn.utils.convert_parameters import vector_to_parameters, parameters_to_vector
-from vit_pytorch.recorder import Recorder
 
 def optimizer_to(optim, device):
     # move optimizer to device
@@ -164,7 +163,7 @@ class GNNCvTR(nn.Module):
         self.gnn = GNN_prediction(self.graph_layers, self.emb_size, jk = "last", dropout_prob = 0.5, pooling = "mean", gnn_type = gnn)
         self.transformer = ConvTR() 
         self.gnn.from_pretrained(pretrained)
-        self.pos_weight = torch.FloatTensor([1]).to(self.device) #Tox21: 35; SIDER: 1
+        self.pos_weight = torch.FloatTensor([1]).to(self.device) #Tox21: 25; SIDER: 1
         self.loss_transformer = nn.BCEWithLogitsLoss(pos_weight=self.pos_weight)
         self.meta_opt = torch.optim.Adam(self.transformer.parameters(), lr=1e-5)
         
@@ -176,8 +175,8 @@ class GNNCvTR(nn.Module):
         self.gnn.to(torch.device("cuda:0"))
         
         if self.baseline == 0:
-            self.ckp_path_gnn = "checkpoints/checkpoints-GT/FS-GNNTR_GNN_tox21_10.pt"
-            self.ckp_path_transformer = "checkpoints/checkpoints-GT/FS-GNNTR_Transformer_tox21_10.pt"
+            self.ckp_path_gnn = "checkpoints/checkpoints-GT/FS-GNNCvTR_GNN_tox21_10.pt"
+            self.ckp_path_transformer = "checkpoints/checkpoints-GT/FS-GNNCvTR_Transformer_tox21_10.pt"
         elif self.baseline == 1:
             self.ckp_path_gnn = "checkpoints/checkpoints-baselines/GCN/checkpoint_gcn_gnn_tox21_5.pt"
             
