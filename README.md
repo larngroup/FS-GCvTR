@@ -8,7 +8,7 @@ A GNN converts the topological structure of molecular graphs into molecular grap
 
 To address the low data problem, we propose a two-module meta-learning framework to update model parameters across few-shot tasks and promote fast adaptation to new toxicity and side effect properties on few-shot data.
 
-![ScreenShot](FS-GNNCvTR/plots/FS-GNNCvTR.png?raw=true)
+![ScreenShot](FS-GNNCvTR/plots/meta.png?raw=true)
 
 Extensive experiments on real multiproperty prediction data demonstrate the predictive power and stable performances of the proposed model when inferring specific toxicity and side effect properties adaptively.
 
