@@ -163,7 +163,7 @@ class GNNCvTR(nn.Module):
         self.gnn = GNN_prediction(self.graph_layers, self.emb_size, jk = "last", dropout_prob = 0.5, pooling = "mean", gnn_type = gnn)
         self.transformer = ConvTR() 
         self.gnn.from_pretrained(pretrained)
-        self.pos_weight = torch.FloatTensor([1]).to(self.device) #Tox21: 25; SIDER: 1
+        self.pos_weight = torch.FloatTensor([25]).to(self.device) #Tox21: 25; SIDER: 1
         self.loss_transformer = nn.BCEWithLogitsLoss(pos_weight=self.pos_weight)
         self.meta_opt = torch.optim.Adam(self.transformer.parameters(), lr=1e-5)
         
