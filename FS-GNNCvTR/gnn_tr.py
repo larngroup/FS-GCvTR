@@ -38,7 +38,7 @@ class LayerNorm(nn.Module): # layernorm, but done in the channel dimension #1
         mean = torch.mean(x, dim = 1, keepdim = True)
         return (x - mean) / (var + self.eps).sqrt() * self.g + self.b
 
-class PreNorm(nn.Module):
+class Norm(nn.Module):
     def __init__(self, dim, fn):
         super().__init__()
         self.norm = LayerNorm(dim)
@@ -47,7 +47,7 @@ class PreNorm(nn.Module):
         x = self.norm(x)
         return self.fn(x, **kwargs)
 
-class FeedForward(nn.Module):
+class FFNet(nn.Module):
     def __init__(self, dim, mult = 4, dropout = 0.):
         super().__init__()
         self.net = nn.Sequential(
@@ -58,7 +58,7 @@ class FeedForward(nn.Module):
             nn.Dropout(dropout)
         )
     def forward(self, x):
-        return self.net(x)
+        return self.net(x)f
 
 class DepthWiseConv(nn.Module):
     def __init__(self, dim_in, dim_out, kernel_size, padding, stride, bias = True):
@@ -111,8 +111,8 @@ class Transformer(nn.Module):
         self.layers = nn.ModuleList([])
         for _ in range(depth):
             self.layers.append(nn.ModuleList([
-                PreNorm(dim, Attention(dim, proj_kernel = proj_kernel, kv_proj_stride = kv_proj_stride, heads = heads, dim_head = dim_head, dropout = dropout)),
-                PreNorm(dim, FeedForward(dim, mlp_mult, dropout = dropout))
+                Norm(dim, Attention(dim, proj_kernel = proj_kernel, kv_proj_stride = kv_proj_stride, heads = heads, dim_head = dim_head, dropout = dropout)),
+                Norm(dim, FFNet(dim, mlp_mult, dropout = dropout))
             ]))
     def forward(self, x):
         for attn, ff in self.layers:
