@@ -71,7 +71,7 @@ class DepthWiseConv(nn.Module):
     def forward(self, x):
         return self.net(x)
 
-class Attention(nn.Module):
+class MSA(nn.Module):
     def __init__(self, dim, proj_kernel, kv_proj_stride, heads = 8, dim_head = 64, dropout = 0.):
         super().__init__()
         inner_dim = dim_head *  heads
@@ -111,7 +111,7 @@ class Transformer(nn.Module):
         self.layers = nn.ModuleList([])
         for _ in range(depth):
             self.layers.append(nn.ModuleList([
-                Norm(dim, Attention(dim, proj_kernel = proj_kernel, kv_proj_stride = kv_proj_stride, heads = heads, dim_head = dim_head, dropout = dropout)),
+                Norm(dim, MSA(dim, proj_kernel = proj_kernel, kv_proj_stride = kv_proj_stride, heads = heads, dim_head = dim_head, dropout = dropout)),
                 Norm(dim, FFNet(dim, mlp_mult, dropout = dropout))
             ]))
     def forward(self, x):
