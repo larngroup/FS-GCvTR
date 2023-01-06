@@ -105,7 +105,7 @@ class MSA(nn.Module):
         out = rearrange(out, '(b h) (x y) d -> b (h d) x y', h = h, y = y)
         return self.to_out(out)
 
-class Transformer(nn.Module):
+class TR(nn.Module):
     def __init__(self, dim, proj_kernel, kv_proj_stride, depth, heads, dim_head = 64, mlp_mult = 4, dropout = 0.):
         super().__init__()
         self.layers = nn.ModuleList([])
@@ -162,7 +162,7 @@ class ConvTR(nn.Module):
             layers.append(nn.Sequential(
                 nn.Conv2d(dim, config['emb_dim'], kernel_size = config['emb_kernel'], padding = (config['emb_kernel'] // 2), stride = config['emb_stride']),
                 LayerNorm(config['emb_dim']),
-                Transformer(dim = config['emb_dim'], proj_kernel = config['proj_kernel'], kv_proj_stride = config['kv_proj_stride'], depth = config['depth'], heads = config['heads'], mlp_mult = config['mlp_mult'], dropout = dropout)
+                TR(dim = config['emb_dim'], proj_kernel = config['proj_kernel'], kv_proj_stride = config['kv_proj_stride'], depth = config['depth'], heads = config['heads'], mlp_mult = config['mlp_mult'], dropout = dropout)
             ))
 
             dim = config['emb_dim']
