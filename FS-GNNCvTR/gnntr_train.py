@@ -1,10 +1,3 @@
-from sklearn.manifold import TSNE
-# from tsnecuda import TSNE # Use this package if the previous one doesn't work
-import matplotlib.pyplot as plt
-import pandas as pd
-import seaborn as sns
-import statistics
-
 import torch
 import gc
 import torch.nn as nn
@@ -17,6 +10,12 @@ from tqdm import tqdm
 import numpy as np
 from sklearn.metrics import roc_auc_score
 from torch.nn.utils.convert_parameters import vector_to_parameters, parameters_to_vector
+from sklearn.manifold import TSNE
+# from tsnecuda import TSNE # Use this package if the previous one doesn't work
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+import statistics
 
 def optimizer_to(optim, device):
     # move optimizer to device
