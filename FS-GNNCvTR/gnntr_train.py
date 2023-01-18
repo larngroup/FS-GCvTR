@@ -174,10 +174,10 @@ class GNNCvTR(nn.Module):
         self.gnn.to(torch.device("cuda:0"))
         
         if self.baseline == 0:
-            self.ckp_path_gnn = "checkpoints/checkpoints-GT/FS-GNNCvTR_GNN_tox21_10.pt"
-            self.ckp_path_transformer = "checkpoints/checkpoints-GT/FS-GNNCvTR_Transformer_tox21_10.pt"
+            self.ckp_path_gnn = "checkpoints/checkpoints-GT/FS-GNNCvTR_GNN_tox21_5.pt"
+            self.ckp_path_transformer = "checkpoints/checkpoints-GT/FS-GNNCvTR_Transformer_tox21_5.pt"
         elif self.baseline == 1:
-            self.ckp_path_gnn = "checkpoints/checkpoints-baselines/GCN/checkpoint_gcn_gnn_tox21_5.pt"
+            self.ckp_path_gnn = "checkpoints/checkpoints-baselines/GCN/checkpoint_GIN_gnn_tox21_5.pt"
             
             
         # Model checkpoints:
