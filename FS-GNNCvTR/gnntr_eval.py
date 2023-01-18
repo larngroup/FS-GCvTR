@@ -114,7 +114,7 @@ def plot_tsne(nodes, labels, t):
     return t
 
 class GNNCvTR_eval(nn.Module):
-    def __init__(self, dataset, gnn, support_set, pretrained, baseline, tl):
+    def __init__(self, dataset, gnn, support_set, pretrained, baseline):
         super(GNNCvTR_eval,self).__init__()
                 
         if dataset == "tox21":
@@ -127,17 +127,6 @@ class GNNCvTR_eval(nn.Module):
             self.train_tasks = 21 
             self.test_tasks = 6 
             
-        if tl == 1:
-            if dataset == "tox21":
-                self.tasks = 12
-                self.train_tasks = 0 
-                self.test_tasks = 12 
-        
-            elif dataset == "sider":
-                self.tasks = 27
-                self.train_tasks = 0 
-                self.test_tasks = 27
-
         self.data = dataset
         self.baseline = baseline
         self.graph_layers = 5
@@ -167,8 +156,8 @@ class GNNCvTR_eval(nn.Module):
         self.gnn.to(torch.device("cuda:0"))
         
         if (self.baseline == 0):
-            self.ckp_path_gnn = "checkpoints/checkpoints-GT/FS-GNNCvTR_GNN_tox21_10.pt"
-            self.ckp_path_transformer = "checkpoints/checkpoints-GT/FS-GNNCvTR_Transformer_tox21_10.pt"
+            self.ckp_path_gnn = "checkpoints/checkpoints-GT/FS-GNNCvTR_GNN_tox21_5.pt"
+            self.ckp_path_transformer = "checkpoints/checkpoints-GT/FS-GNNCvTR_Transformer_tox21_5.pt"
         elif  (self.baseline == 1):
             self.ckp_path_gnn = "checkpoints/checkpoints-baselines/GIN/checkpoint_GIN_gnn_tox21_05.pt"
         
