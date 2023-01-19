@@ -10,7 +10,7 @@ To address the low data problem, we propose a novel two-module meta-learning fra
 
 ![ScreenShot](FS-GNNCvTR/plots/meta.png?raw=true)
 
-Extensive experiments on real multiproperty prediction data demonstrate the predictive power and stable performances of the proposed model when inferring specific toxicity and side effect properties adaptively.
+Extensive experiments on real multiproperty prediction data demonstrate the predictive power and stable performances of the proposed model when inferring task-specific toxicity and side effect properties adaptively.
 
 This repository provides the source code and datasets for the proposed work.
 
