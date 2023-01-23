@@ -62,13 +62,7 @@ for epoch in range(1, 10000):
     roc_scores, gnn_model, transformer_model, gnn_opt, t_opt = model_eval.meta_evaluate() #FS-GNNCvTR
    
     #roc_scores, gnn_model, gnn_opt = model.meta_evaluate(grads) #baselines
-    
-    if roc_auc_list != []:
-        for score in range(len(roc_auc_list)):
-
-            if roc_auc_list[score] < roc_scores[score]:
-                roc_auc_list[score] = roc_scores[score]
-                
+                  
     if epoch <= N:
       i=0
       for a in roc_scores:
@@ -80,8 +74,6 @@ for epoch in range(1, 10000):
         if min(exp[i]) < round(roc_scores[i],4):
           index = exp[i].index(min(exp[i]))
           exp[i][index] = roc_scores[i]
-    else:
-        roc_auc_list = roc_scores
       
     save_result(epoch, N, exp, "results-exp/mean-FSGNNCvTR_tox21_5.txt")
       
