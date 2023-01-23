@@ -237,7 +237,7 @@ class GNNCvTR_eval(nn.Module):
                 with torch.no_grad(): 
                     logit, node_emb = self.gnn(batch.x, batch.edge_index, batch.edge_attr, batch.batch)
                 
-                y_label.append(batch.y.view(graph_pred.shape))
+                y_label.append(batch.y.view(logit.shape))
                 
                 if self.baseline == 0:
                     with torch.no_grad(): 
