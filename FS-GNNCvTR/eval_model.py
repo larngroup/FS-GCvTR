@@ -97,7 +97,3 @@ for epoch in range(1, 10000):
     plt.show()
     plt.close(fig)
     
-       
-    if epoch >= N/2:
-        for list_acc in exp:
-            print(str(epoch) + " Support Sets: (Mean:"+ str(statistics.mean(list_acc)) +", SD:" +str(statistics.stdev(list_acc)) + ")")
