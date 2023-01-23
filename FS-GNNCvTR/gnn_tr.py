@@ -58,7 +58,7 @@ class FFNet(nn.Module):
             nn.Dropout(dropout)
         )
     def forward(self, x):
-        return self.net(x)f
+        return self.net(x)
 
 class DepthWiseConv(nn.Module):
     def __init__(self, dim_in, dim_out, kernel_size, padding, stride, bias = True):
