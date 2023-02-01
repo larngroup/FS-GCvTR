@@ -59,12 +59,12 @@ We used the following Python packages for core development. We tested on Python 
 
 ```
 @inproceedings{
-hu2020pretraining,
-title={Strategies for Pre-training Graph Neural Networks},
-author={Hu, Weihua and Liu, Bowen and Gomes, Joseph and Zitnik, Marinka and Liang, Percy and Pande, Vijay and Leskovec, Jure},
-booktitle={International Conference on Learning Representations},
-year={2020},
-url={https://openreview.net/forum?id=HJlWWJSFDH},
+  hu2020pretraining,
+  title={Strategies for Pre-training Graph Neural Networks},
+  author={Hu, Weihua and Liu, Bowen and Gomes, Joseph and Zitnik, Marinka and Liang, Percy and Pande, Vijay and Leskovec, Jure},
+  booktitle={International Conference on Learning Representations},
+  year={2020},
+  url={https://openreview.net/forum?id=HJlWWJSFDH}
 }
 
 ```
@@ -91,7 +91,7 @@ url={https://openreview.net/forum?id=HJlWWJSFDH},
    pages = {22-31},
    publisher = {Institute of Electrical and Electronics Engineers Inc.},
    title = {CvT: Introducing Convolutions to Vision Transformers},
-   year = {2021},
+   year = {2021}
 }
 
 
@@ -105,7 +105,7 @@ url={https://openreview.net/forum?id=HJlWWJSFDH},
   year = {2021},
   publisher = {GitHub},
   journal = {GitHub repository},
-  howpublished = {\url{https://github.com/lucidrains/vit-pytorch}},
+  howpublished = {\url{https://github.com/lucidrains/vit-pytorch}}
 }
 
 ```
