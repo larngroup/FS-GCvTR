@@ -3,13 +3,10 @@ from gnntr_eval import GNNCvTR_eval
 import statistics
 import matplotlib.pyplot as plt
 
-def save_ckp(state, is_best, checkpoint_dir, best_model_dir, filename, best_model):
+def save_ckp(state, is_best, checkpoint_dir, filename):
     
     f_path = checkpoint_dir + filename
     torch.save(state, f_path)
-    #if is_best:
-    #    best_fpath = best_model_dir + best_model
-    #    shutil.copyfile(f_path, best_fpath)
 
 def save_result(epoch, N, exp, filename):
             
