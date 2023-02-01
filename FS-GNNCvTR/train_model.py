@@ -1,12 +1,9 @@
 import torch
 from gnntr_train import GNNCvTR
 
-def save_ckp(state, is_best, checkpoint_dir, best_model_dir, filename, best_model):
+def save_ckp(state, is_best, checkpoint_dir, filename):
     f_path = checkpoint_dir + filename
     torch.save(state, f_path)
-    #if is_best:
-    #    best_fpath = best_model_dir + best_model
-    #    shutil.copyfile(f_path, best_fpath)
 
 dataset = "tox21"
 gnn= "gin" #gin, graphsage, gcn
@@ -47,7 +44,6 @@ for epoch in range(1, 10000):
     
 
     checkpoint_dir = 'checkpoints/checkpoints-GT/'
-    model_dir = 'model/model-GT/'
     is_best = epoch
     
     for i in range(0, len(roc_scores)):
@@ -65,10 +61,10 @@ for epoch in range(1, 10000):
     file.close()
     
     if baseline == 0:
-        save_ckp(checkpoint_gnn, is_best, checkpoint_dir, model_dir, "/FS-GNNCvTR_GNN_tox21_5.pt", "/FS-GNNCvTR_GNN_tox21_5_best.pt")
-        save_ckp(checkpoint_transformer, is_best, checkpoint_dir, model_dir, "/FS-GNNCvTR_Transformer_tox21_5.pt", "/FS-GNNCvTR_Transformer_tox21_5_best.pt")
+        save_ckp(checkpoint_gnn, is_best, checkpoint_dir, "/FS-GNNCvTR_GNN_tox21_5.pt")
+        save_ckp(checkpoint_transformer, is_best, checkpoint_dir, "/FS-GNNCvTR_Transformer_tox21_5.pt")
 
     elif baseline == 1:
-        save_ckp(checkpoint_gnn, is_best, checkpoint_dir, model_dir, "/checkpoint_GIN_gnn_tox21_5.pt", "/best_checkpoint_GIN_gnn_tox21_5.pt")
+        save_ckp(checkpoint_gnn, is_best, checkpoint_dir, "/checkpoint_GIN_gnn_tox21_5.pt")
         
    
