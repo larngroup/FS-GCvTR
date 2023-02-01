@@ -58,8 +58,7 @@ We used the following Python packages for core development. We tested on Python 
 [1] Hu, W., Liu, B., Gomes, J., Zitnik, M., Liang, P., Pande, V., Leskovec, J.: Strategies for pre-training graph neural networks. CoRR abs/1905.12265 (2020). https://doi.org/10.48550/ARXIV.1905.12265
 
 ```
-@inproceedings{
-  hu2020pretraining,
+@inproceedings{hu2020pretraining,
   title={Strategies for Pre-training Graph Neural Networks},
   author={Hu, Weihua and Liu, Bowen and Gomes, Joseph and Zitnik, Marinka and Liang, Percy and Pande, Vijay and Leskovec, Jure},
   booktitle={International Conference on Learning Representations},
