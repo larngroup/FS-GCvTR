@@ -56,7 +56,7 @@ for epoch in range(1, 10000):
     
     roc_scores, gnn_model, transformer_model, gnn_opt, t_opt = model_eval.meta_evaluate() #FS-GNNCvTR
    
-    #roc_scores, gnn_model, gnn_opt = model.meta_evaluate(grads) #baselines
+    #roc_scores, gnn_model, gnn_opt = model.meta_evaluate() #baselines
                   
     if epoch <= N:
       i=0
