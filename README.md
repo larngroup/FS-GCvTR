@@ -4,11 +4,11 @@ In this work, we present a few-shot GNN-Transformer architecture called FS-GNNCv
 
 A graph neural network (GNN) converts the topological structure of molecular graphs into molecular graph embeddings using neighborhood aggregation. A convolutional Transformer (CvTR) encoder exploits the contextual information of these vectorial embeddings to propagate deep representations across self-attention layers. The Transformer includes a convolutional component to integrate the local information captured by convolutional filters with the global dependencies preserved by the dynamic attention operations of Transformer networks.
 
-![ScreenShot](FS-GNNCvTR/plots/FS-GNNCvTR.png?raw=true)
+![ScreenShot](figures/FS-GNNCvTR.png?raw=true)
 
 To address the low data problem, we propose a novel two-module meta-learning framework to update model parameters across few-shot tasks and promote fast adaptation to new toxicity and side effect properties with limited available data.
 
-![ScreenShot](FS-GNNCvTR/plots/meta.png?raw=true)
+![ScreenShot](figures/meta.png?raw=true)
 
 Extensive experiments on real multiproperty prediction data demonstrate the predictive power and stable performances of the proposed model when inferring task-specific toxicity and side effect properties adaptively.
 
